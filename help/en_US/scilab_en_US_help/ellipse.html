@@ -1,0 +1,111 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ellipse</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectKAZEFeatures.html">&lt;&lt; detectKAZEFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="ellipse2poly.html">ellipse2poly &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; ellipse</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">ellipse</h1>
+    <p class="refpurpose">This function draws a simple or thick elliptic arc or fills an ellipse sector.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">elli</span><span class="default">=</span><span class="functionid">ellipse</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">xcor</span><span class="default">,</span><span class="default">ycor</span><span class="default">,</span><span class="default">firstAxis</span><span class="default">,</span><span class="default">secondAxis</span><span class="default">,</span><span class="default">angle</span><span class="default">,</span><span class="default">startAngle</span><span class="default">,</span><span class="default">endAngle</span><span class="default">,</span><span class="default">r</span><span class="default">,</span><span class="default">g</span><span class="default">,</span><span class="default">b</span><span class="default">);</span>
+<span class="default">elli</span><span class="default">=</span><span class="functionid">ellipse</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">xcor</span><span class="default">,</span><span class="default">ycor</span><span class="default">,</span><span class="default">firstAxis</span><span class="default">,</span><span class="default">secondAxis</span><span class="default">,</span><span class="default">angle</span><span class="default">,</span><span class="default">startAngle</span><span class="default">,</span><span class="default">endAngle</span><span class="default">,</span><span class="default">r</span><span class="default">,</span><span class="default">g</span><span class="default">,</span><span class="default">b</span><span class="default">,</span><span class="default">thickness</span><span class="default">);</span>
+<span class="default">elli</span><span class="default">=</span><span class="functionid">ellipse</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">xcor</span><span class="default">,</span><span class="default">ycor</span><span class="default">,</span><span class="default">firstAxis</span><span class="default">,</span><span class="default">secondAxis</span><span class="default">,</span><span class="default">angle</span><span class="default">,</span><span class="default">startAngle</span><span class="default">,</span><span class="default">endAngle</span><span class="default">,</span><span class="default">r</span><span class="default">,</span><span class="default">g</span><span class="default">,</span><span class="default">b</span><span class="default">,</span><span class="default">thickness</span><span class="default">,</span><span class="default">linetype</span><span class="default">);</span>
+<span class="default">elli</span><span class="default">=</span><span class="functionid">ellipse</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">xcor</span><span class="default">,</span><span class="default">ycor</span><span class="default">,</span><span class="default">firstAxis</span><span class="default">,</span><span class="default">secondAxis</span><span class="default">,</span><span class="default">angle</span><span class="default">,</span><span class="default">startAngle</span><span class="default">,</span><span class="default">endAngle</span><span class="default">,</span><span class="default">r</span><span class="default">,</span><span class="default">g</span><span class="default">,</span><span class="default">b</span><span class="default">,</span><span class="default">thickness</span><span class="default">,</span><span class="default">linetype</span><span class="default">,</span><span class="default">shift</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">elli:</span>
+      <dd><p class="para">The output image with the ellipse drawn in it.</p></dd></dt>
+   <dt><span class="term">inputImage:</span>
+      <dd><p class="para">The input image on which the ellipse should be drawn.</p></dd></dt>
+   <dt><span class="term">xcor:</span>
+      <dd><p class="para">X-coordinate of the center</p></dd></dt>
+   <dt><span class="term">ycor:</span>
+      <dd><p class="para">Y-coordinate of the center</p></dd></dt>
+   <dt><span class="term">firstAxis:</span>
+      <dd><p class="para">the first axis of the ellipse.</p></dd></dt>
+   <dt><span class="term">secondAxis:</span>
+      <dd><p class="para">the second axis of the ellipse.</p></dd></dt>
+   <dt><span class="term">angle:</span>
+      <dd><p class="para">Ellipse rotation angle in degrees.</p></dd></dt>
+   <dt><span class="term">startAngle:</span>
+      <dd><p class="para">Starting angle of the elliptic arc in degrees.</p></dd></dt>
+   <dt><span class="term">endAngle:</span>
+      <dd><p class="para">Ending angle of the elliptic arc in degrees.</p></dd></dt>
+   <dt><span class="term">r:</span>
+      <dd><p class="para">red color value of the ellipse.It should be in the range 0-255.</p></dd></dt>
+   <dt><span class="term">b:</span>
+      <dd><p class="para">blue color value of the ellipse.It should be in the range 0-255.</p></dd></dt>
+   <dt><span class="term">g:</span>
+      <dd><p class="para">green color value of the ellipse.It should be in the range 0-255.</p></dd></dt>
+   <dt><span class="term">thickness:</span>
+      <dd><p class="para">Line thickness.</p></dd></dt>
+   <dt><span class="term">linetype:</span>
+      <dd><p class="para">Type of the ellipse boundary.It can be 0 or 4 or 8.</p></dd></dt>
+   <dt><span class="term">shift:</span>
+      <dd><p class="para">Number of fractional bits in the point coordinates.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"></p>
+   <p class="para">This function draws a simple or thick elliptic arc or fills an ellipse sector.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// read the input image on which the ellipse shpuld be drawn.</span>
+<span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<a class="scilabcommand" href="scilab://call">call</a> <span class="scilabstring">the</span> <span class="scilabstring">function</span>
+<span class="scilabid">elli</span><span class="scilaboperator">=</span><span class="scilabid">ellipse</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">45</span><span class="scilabdefault">,</span><span class="scilabnumber">45</span><span class="scilabdefault">,</span><span class="scilabnumber">45</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">45</span><span class="scilabdefault">,</span><span class="scilabnumber">255</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">// show the image drawn on it.</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">elli</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectKAZEFeatures.html">&lt;&lt; detectKAZEFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="ellipse2poly.html">ellipse2poly &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

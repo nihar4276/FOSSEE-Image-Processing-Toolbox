@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from cvtColor.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="cvtColor" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>cvtColor</refname>
+    <refpurpose>This function is used to transform a image from one space to other like rgb to gray and vice versa.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   inputImage=imread("lena.jpeg");
+   outputImage=cvtColor(inputImage,codeString);
+   outputImage=cvtColor(inputImage,codeString,dstCn);
+   
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>dstCn:</term>
+      <listitem><para> number of channels in the destination image; if the parameter is 0, the number of the channels is derived automatically from src and code</para></listitem></varlistentry>
+   <varlistentry><term>codeString:</term>
+      <listitem><para> A string which specifies the type of conversion.The different types are listed below.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_BGR2GRAY":</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space to GRAY.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_RGB2GRAY":</term>
+      <listitem><para> Conversion is from RGB(red-green-blue) space to GRAY.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_GRAY2BGR":</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_GRAY2RGB":</term>
+      <listitem><para> Conversion is from to GRAY to RGB(blue-green-red) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_BGR2XYZ" :</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space to CIE XYZ.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_RGB2XYZ" :</term>
+      <listitem><para> Conversion is from RGB(red-green-blue) space to CIE XYZ.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_XYZ2BGR" :</term>
+      <listitem><para> Conversion is from to CIE XYZ to BGR space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_XYZ2RGB" :</term>
+      <listitem><para> Conversion is from to CIE XYZ to RGB(red-green-blue) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_BGR2YCrCb":</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space to luma-chroma.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_RGB2YCrCb" :</term>
+      <listitem><para>Conversion is from RGB(red-green-blue) space to luma chroma.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_YCrCb2BGR" :</term>
+      <listitem><para>Conversion is from  luma-chroma to BGR(blue-green-red) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_YCrCb2RGB" :</term>
+      <listitem><para>Conversion is from  luma-chroma to RGB(red-green-blue) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_BGR2HSV":</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space to HSV.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_RGB2HSV":</term>
+      <listitem><para> Conversion is from RGB space to HSV.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_HSV2BGR":</term>
+      <listitem><para> Conversion is from to HSV to BGR(blue-green-red) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_HSV2RGB":</term>
+      <listitem><para> Conversion is from to HSV to RGB(red-green-blue) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_BGR2HLS":</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space to HLS.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_RGB2HLS":</term>
+      <listitem><para> Conversion is from RGB space to HSV.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_HLS2BGR":</term>
+      <listitem><para> Conversion is from  HLS to BGR(blue-green-red) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_HLS2RGB":</term>
+      <listitem><para> Conversion is from  HLS to RGB(red-green-blue) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_BGR2Lab":</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space to CIE Lab.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_RGB2Lab":</term>
+      <listitem><para> Conversion is from RGB space to CIE Lab.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_Lab2BGR":</term>
+      <listitem><para> Conversion is from  CIE Lab to BGR(blue-green-red) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_Lab2RGB":</term>
+      <listitem><para> Conversion is from  CIE Lab to RGB space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_BGR2Luv":</term>
+      <listitem><para> Conversion is from BGR(blue-green-red) space to CIE Luv.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_RGB2Luv":</term>
+      <listitem><para> Conversion is from RGB space to CIE Luv.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_Luv2BGR":</term>
+      <listitem><para> Conversion is from  CIE Luv to BGR(blue-green-red) space.</para></listitem></varlistentry>
+   <varlistentry><term>"CV_Luv2RGB":</term>
+      <listitem><para> Conversion is from  CIE Luv to RGB space.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+This function is used to transform a image from one space to other like rgb to gray and vice versa.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+z=imread("lena.jpeg",0);
+ss=cvtColor(z,"CV_GRAY2BGR");
+imshow(ss)
+   ]]></programlisting>
+</refsection>
+</refentry>

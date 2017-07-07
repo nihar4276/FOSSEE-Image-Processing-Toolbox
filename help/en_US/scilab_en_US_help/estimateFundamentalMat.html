@@ -1,0 +1,87 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>estimateFundamentalMat</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="erode.html">&lt;&lt; erode</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="extractHOGFeatures.html">extractHOGFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; estimateFundamentalMat</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">estimateFundamentalMat</h1>
+    <p class="refpurpose">It returns the 3-by-3 fundamental matrix corresponding to the input points</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">fundamentalMat</span><span class="default">=</span><span class="default">estimateFundamentalMatrix</span><span class="default">(</span><span class="default">matchedPoints1</span><span class="default">,</span><span class="default">matchedPoints2</span><span class="default">);</span>
+<span class="default">fundamentalMat</span><span class="default">=</span><span class="default">estimateFundamentalMatrix</span><span class="default">(</span><span class="default">matchedPoints1</span><span class="default">,</span><span class="default">matchedPoints2</span><span class="default">,</span>&#0039;<span class="default">method</span>&#0039;<span class="default">,</span>&#0039;<span class="default">RANSAC</span>&#0039;<span class="default">,</span>&#0039;<span class="default">param1</span>&#0039;<span class="default">,2,</span>&#0039;<span class="default">param2</span>&#0039;<span class="default">,0.99);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">matchedPoints1:</span>
+      <dd><p class="para">M-by-2 array of first image points. These points can be SURFPoints, MSERRegions, cornerPoints.</p></dd></dt>
+   <dt><span class="term">matchedPoints2:</span>
+      <dd><p class="para">M-by-2 array of the second image points of the same size and format as matchedPoints1.</p></dd></dt>
+   <dt><span class="term">method:</span>
+      <dd><p class="para">method for computing fundamental matrix. Possible methods are 7POINT,8POINT,RANSAC,LMEDS and RANSAC is the default one.</p></dd></dt>
+   <dt><span class="term">param1:</span>
+      <dd><p class="para">It indiacates maximum distance from a point to an epipolar line in pixels</p></dd></dt>
+   <dt><span class="term">param2:</span>
+      <dd><p class="para">It specifies a desirable level of confidence</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">estimateFundamentalMatrix function calculates a fundamental matrix from the corresponding points in two images.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">I</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena_left.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">cornerPoints1</span><span class="scilaboperator">=</span><span class="scilabid">detectMinEigenFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">I</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">I2</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena_right.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">cornerPoints2</span><span class="scilaboperator">=</span><span class="scilabid">detectMinEigenFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">I2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">fundamentalMat</span><span class="scilaboperator">=</span><span class="scilabopenclose">(</span><span class="scilabid">cornerPoints1</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabdefault">,</span><span class="scilabid">cornerPoints2</span><span class="scilaboperator">.</span><span class="scilabfield">Location</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="erode.html">&lt;&lt; erode</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="extractHOGFeatures.html">extractHOGFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>trainSVMClassifier</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="trainBoostClassifier.html">&lt;&lt; trainBoostClassifier</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="trainSVMSGDClassifier.html">trainSVMSGDClassifier &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; trainSVMClassifier</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">trainSVMClassifier</h1>
+    <p class="refpurpose">This function is used to train an image classifier using the SVM(Support Vector Machines) Model.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">imgSet</span><span class="default"> = </span><span class="default">imageSet</span><span class="default">(</span><span class="default">directory</span><span class="default">,</span>&#0039;<span class="default">recursive</span>&#0039;<span class="default">);</span>
+&#0039;<span class="default">or</span>&#0039;
+<span class="default">imgSet</span><span class="default"> = </span><span class="default">imageSet</span><span class="default">(</span><span class="default">image</span><span class="default">);</span>
+<span class="default">bag</span><span class="default"> = </span><span class="default">bagOfFeatures</span><span class="default">(</span><span class="default">imgSet</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">);</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">,</span><span class="default">C</span><span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">,</span><span class="default">C</span><span class="default">,</span><span class="default">coeff</span><span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">,</span><span class="default">C</span><span class="default">,</span><span class="default">coeff</span><span class="default">,</span><span class="default">degree</span><span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">,</span><span class="default">C</span><span class="default">,</span><span class="default">coeff</span><span class="default">,</span><span class="default">degree</span><span class="default">,</span><span class="default">gamma</span><span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">,</span><span class="default">C</span><span class="default">,</span><span class="default">coeff</span><span class="default">,</span><span class="default">degree</span><span class="default">,</span><span class="default">gamma</span><span class="default">,</span><span class="default">kernelType</span><span class="default">,</span><span class="default">Nu</span><span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">,</span><span class="default">C</span><span class="default">,</span><span class="default">coeff</span><span class="default">,</span><span class="default">degree</span><span class="default">,</span><span class="default">gamma</span><span class="default">,</span><span class="default">kernelType</span><span class="default">,</span><span class="default">Nu</span><span class="default">,</span><span class="default">P</span><span class="default">)</span>
+<span class="default">classifier</span><span class="default"> = </span><span class="functionid">trainSVMClassifier</span><span class="default">(</span><span class="default">imgSets</span><span class="default">, </span><span class="default">bag</span><span class="default">,</span>&#0039;<span class="default">nameclass</span>&#0039;<span class="default">,</span><span class="default">C</span><span class="default">,</span><span class="default">coeff</span><span class="default">,</span><span class="default">degree</span><span class="default">,</span><span class="default">gamma</span><span class="default">,</span><span class="default">kernelType</span><span class="default">,</span><span class="default">Nu</span><span class="default">,</span><span class="default">P</span><span class="default">,</span><span class="default">setType</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">classifier:</span>
+      <dd><p class="para">Image category classifier location</p></dd></dt>
+   <dt><span class="term">BagofFeaturesLocation :</span>
+      <dd><p class="para">location of the xml or yml file.</p></dd></dt>
+   <dt><span class="term">Description :</span>
+      <dd><p class="para">features obtained after training.</p></dd></dt>
+   <dt><span class="term">imgSets:</span>
+      <dd><p class="para">Input imageSet to train the classifier on</p></dd></dt>
+   <dt><span class="term">bag:</span>
+      <dd><p class="para">The bagOfFeatures of the imageSet provided</p></dd></dt>
+   <dt><span class="term">image:</span>
+      <dd><p class="para">The set of images used for creating the imageset used for training</p></dd></dt>
+   <dt><span class="term">nameclass:</span>
+      <dd><p class="para">Name of the classifier one wants for their trained model .xml or .yml file</p></dd></dt>
+   <dt><span class="term">C:</span>
+      <dd><p class="para">Parameter C of a SVM optimization problem that should be used to train the model</p></dd></dt>
+   <dt><span class="term">coef:</span>
+      <dd><p class="para">Parameter coef0 of a kernel function that should be used to train the model</p></dd></dt>
+   <dt><span class="term">degree:</span>
+      <dd><p class="para">Parameter degree of a kernel function that should be used to train the model</p></dd></dt>
+   <dt><span class="term">gamma:</span>
+      <dd><p class="para">Parameter γ of a kernel function that should be used to train the model.</p></dd></dt>
+   <dt><span class="term">kernelType:</span>
+      <dd><p class="para">Type of a SVM kernel that should be used to train the model.it should be [-1,5].</p></dd></dt>
+   <dt><span class="term">Nu:</span>
+      <dd><p class="para">Parameter ν of a SVM optimization problem that should be used to train the model.</p></dd></dt>
+   <dt><span class="term">P:</span>
+      <dd><p class="para">Parameter ϵ of a SVM optimization problem that should be used to train the model.</p></dd></dt>
+   <dt><span class="term">type:</span>
+      <dd><p class="para">Type of a SVM formulation that should be used to train the model.it should be [100,104].</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">this function is used to train an image classifier using the SVM(Support Vector Machines) Model.</p>
+   <p class="para"></p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//get imageset from </span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">images2</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment"> folder</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imageSet</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images2</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">recursive</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//get bag of features</span>
+<span class="scilabid">x</span><span class="scilaboperator">=</span><span class="scilabid">bagOfFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//train thew model and name the saved .yml file as </span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">SVM</span><span class="scilabcomment">&#0034;</span>
+<span class="scilabid">d</span><span class="scilaboperator">=</span><span class="scilabid">trainSVMClassifier</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabdefault">,</span><span class="scilabid">x</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">SVM</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//read image to get prediction from mthe above trained data</span>
+<span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">fish.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//finally predict the class using SVM</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">s prediction function for the input image</span>
+<span class="scilabid">resp</span><span class="scilaboperator">=</span><span class="scilabid">predict</span><span class="scilabopenclose">(</span><span class="scilabid">d</span><span class="scilabdefault">,</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">SVM</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabcomment">//get imageset from </span><span class="scilabcomment">&#0039;</span><span class="scilabcomment">images2</span><span class="scilabcomment">&#0039;</span><span class="scilabcomment"> folder</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imageSet</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">images2</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">recursive</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//get bag of features</span>
+<span class="scilabid">x</span><span class="scilaboperator">=</span><span class="scilabid">bagOfFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//train the model with the given parameters  and name  the saved .yml file as </span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">SVM</span><span class="scilabcomment">&#0034;</span>
+<span class="scilabid">d</span><span class="scilaboperator">=</span><span class="scilabid">trainSVMClassifier</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabdefault">,</span><span class="scilabid">x</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">SVM</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">1.1</span><span class="scilabdefault">,</span><span class="scilabnumber">0.2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//read image to get prediction from mthe above trained data</span>
+<span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">fish.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//finally predict the class for the input image</span>
+<span class="scilabid">resp</span><span class="scilaboperator">=</span><span class="scilabid">predict</span><span class="scilabopenclose">(</span><span class="scilabid">d</span><span class="scilabdefault">,</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">SVM</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="trainBoostClassifier.html">&lt;&lt; trainBoostClassifier</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="trainSVMSGDClassifier.html">trainSVMSGDClassifier &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>detectGFTTFeatures</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectAkazeFeatures.html">&lt;&lt; detectAkazeFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectKAZEFeatures.html">detectKAZEFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; detectGFTTFeatures</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">detectGFTTFeatures</h1>
+    <p class="refpurpose">This function is used to detect GFTT Features in a grayscale Image.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">result</span><span class="default"> = </span><span class="functionid">detectGFTTFeatures</span><span class="default">(</span><span class="default">Image</span><span class="default">);</span>
+<span class="default">result</span><span class="default"> = </span><span class="functionid">detectGFTTFeatures</span><span class="default">(</span><span class="default">Image</span><span class="default">,</span><span class="default">Name</span><span class="default">,</span><span class="default">Value</span><span class="default">,....)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">result:</span>
+      <dd><p class="para">a struct containing features and keypoints</p></dd></dt>
+   <dt><span class="term">Image:</span>
+      <dd><p class="para">a grayscale image whose GFTT features is to be found</p></dd></dt>
+   <dt><span class="term">blocksize:</span>
+      <dd><p class="para">the blocksize to be used for detecting the keypoints</p></dd></dt>
+   <dt><span class="term">minDistance:</span>
+      <dd><p class="para">the minimum distance between the points for feature computation</p></dd></dt>
+   <dt><span class="term">useHarrisDetector:</span>
+      <dd><p class="para">an option to use the HarrisDetector.default value is false.</p></dd></dt>
+   <dt><span class="term">maxCorners:</span>
+      <dd><p class="para">the maximum number of corners that should be used for feature computation.</p></dd></dt>
+   <dt><span class="term">ROI or Mask :</span>
+      <dd><p class="para">(Optional) Region Of Interest. This is taken as a vector [u v width height]. When specified, the function detects the key points within region of area width*height with u and v being the top left corner coordinates.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function is used to detect GFTT Features in a grayscale Image.</p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//read image in grayscale</span>
+<span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">people.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">pls.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<a class="scilabcommand" href="scilab://stacksize">stacksize</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">max</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span>
+<span class="scilabcomment">//call the function to detect features for image- z</span>
+<span class="scilabid">pls</span><span class="scilaboperator">=</span><span class="scilabid">detectGFTTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">minDistance</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">// call the function to detect features for image- image</span>
+<span class="scilabid">pls1</span><span class="scilaboperator">=</span><span class="scilabid">detectGFTTFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//match features using the features detected using the above function</span>
+<span class="scilabopenclose">[</span><span class="scilabid">op</span> <span class="scilabid">ir</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">matchFeatures</span><span class="scilabopenclose">(</span><span class="scilabid">pls</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabdefault">,</span><span class="scilabid">pls1</span><span class="scilaboperator">.</span><span class="scilabfield">Features</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//finally draw those matches</span>
+<span class="scilabid">final</span><span class="scilaboperator">=</span><span class="scilabid">drawMatch</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabid">image</span><span class="scilabdefault">,</span><span class="scilabid">pls</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span><span class="scilabid">pls1</span><span class="scilaboperator">.</span><span class="scilabfield">KeyPoints</span><span class="scilabdefault">,</span><span class="scilabid">op</span><span class="scilabdefault">,</span><span class="scilabid">ir</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">final</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="detectAkazeFeatures.html">&lt;&lt; detectAkazeFeatures</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectKAZEFeatures.html">detectKAZEFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

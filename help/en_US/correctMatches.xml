@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from correctMatches.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="correctMatches" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>correctMatches</refname>
+    <refpurpose>This function Refines coordinates of corresponding points using openCV's functions.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [newPoints1, newPoints2] = correctMatches(F, points1, points2)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function implements the Optimal Triangulation Method (see Multiple View Geometry for details). For each given point correspondence points1[i] &lt;-&gt; points2[i], and a fundamental matrix F, it computes the corrected correspondences newPoints1[i] &lt;-&gt; newPoints2[i] that minimize the geometric error  d(points1[i], newPoints1[i])^2 + d(points2[i],newPoints2[i])^2 (where  d(a,b) is the geometric distance between points  a and  b ) subject to the epipolar constraint  newPoints2^T * F * newPoints1 = 0 .
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//read first image
+I=imread("oscarSelfie.jpg",0);
+//increase stack size of scilab
+stacksize('max')
+// get points from first image
+cornerPoints1=detectMSERFeatures(I);
+//read second image
+I2=imread("oscarSelfie.jpg",0);
+//get points for 2nd image
+cornerPoints2=detectMSERFeatures(I2);
+fundamentalMat=estimateFundamentalMat(cornerPoints1.Location,cornerPoints2.Location);
+[new1 new2]=correctMatches(fundamentalMat,cornerPoints2.Location,cornerPoints1.Location);
+   ]]></programlisting>
+</refsection>
+</refentry>

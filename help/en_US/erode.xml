@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from erode.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="erode" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>erode</refname>
+    <refpurpose>This function Erodes an image by using a specific structuring element.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   z=imread("lena.jpeg");
+   ero=erode(inputImage,kernel,anchorX,anchorY,iterations);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>z:</term>
+      <listitem><para> input image which should be eroded.</para></listitem></varlistentry>
+   <varlistentry><term>ero:</term>
+      <listitem><para> the output eroded image</para></listitem></varlistentry>
+   <varlistentry><term>kernel:</term>
+      <listitem><para> structuring element used for erosion</para></listitem></varlistentry>
+   <varlistentry><term>anchorX:</term>
+      <listitem><para> x coordinate of Anchor.</para></listitem></varlistentry>
+   <varlistentry><term>anchorY:</term>
+      <listitem><para> y coordinate of Anchor.</para></listitem></varlistentry>
+   <varlistentry><term>Anchor:</term>
+      <listitem><para> position of the anchor within the element.</para></listitem></varlistentry>
+   <varlistentry><term>Iterations:</term>
+      <listitem><para> number of times erosion is applied.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+This function Erodes an image by using a specific structuring element.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+z=imread("lena.jpeg");
+ero=erode(z,[6 4],1,1,4);
+   ]]></programlisting>
+</refsection>
+</refentry>

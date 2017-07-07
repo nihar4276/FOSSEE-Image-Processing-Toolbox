@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from circle.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="circle" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>circle</refname>
+    <refpurpose>This function circle draws a simple or filled circle on an image with a given center and radius.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   cir=circle(inputImage,xcor,ycor,radius,r,g,b);
+   cir=circle(inputImage,xcor,ycor,radius,r,g,b,thickness);
+   cir=circle(inputImage,xcor,ycor,radius,r,g,b,thickness,linetype);
+   cir=circle(inputImage,xcor,ycor,radius,r,g,b,thickness,linetype,shift);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>cir:</term>
+      <listitem><para> The output image with the circle drawn in it.</para></listitem></varlistentry>
+   <varlistentry><term>inputImage:</term>
+      <listitem><para> The input image on which the circle should be drawn.</para></listitem></varlistentry>
+   <varlistentry><term>xcor:</term>
+      <listitem><para> X-coordinate of the center</para></listitem></varlistentry>
+   <varlistentry><term>ycor:</term>
+      <listitem><para> Y-coordinate of the center</para></listitem></varlistentry>
+   <varlistentry><term>r:</term>
+      <listitem><para> red color value of the circle.It should be in the range 0-255.</para></listitem></varlistentry>
+   <varlistentry><term>b:</term>
+      <listitem><para> blue color value of the circle.It should be in the range 0-255.</para></listitem></varlistentry>
+   <varlistentry><term>g:</term>
+      <listitem><para> green color value of the circle.It should be in the range 0-255.</para></listitem></varlistentry>
+   <varlistentry><term>thickness:</term>
+      <listitem><para> Line thickness.</para></listitem></varlistentry>
+   <varlistentry><term>linetype:</term>
+      <listitem><para> Type of the circle boundary.It can be 0 or 4 or 8.</para></listitem></varlistentry>
+   <varlistentry><term>shift:</term>
+      <listitem><para> Number of fractional bits in the point coordinates.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function circle draws a simple or filled circle on an image with a given center and radius.
+   </para>
+   <para>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+//read the input image
+z=imread("lena.jpeg");
+//call the function
+cir=circle(z,100,100,15,255,0,0,1,8,0);
+finally show the circle drawn
+imshow(cir)
+   ]]></programlisting>
+</refsection>
+</refentry>

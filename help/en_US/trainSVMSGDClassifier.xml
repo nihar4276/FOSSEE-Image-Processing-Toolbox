@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainSVMSGDClassifier.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainSVMSGDClassifier" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainSVMSGDClassifier</refname>
+    <refpurpose>This function is used to train an image classifier using the SVMSGD(Stochastic Gradient Descent SVM) Model.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   imgSet = imageSet(directory,'recursive');
+   'or'
+   imgSet = imageSet(image);
+   bag = bagOfFeatures(imgSet);
+   classifier = trainSVMSGDClassifier(imgSets, bag);`
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass')
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass')
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass',initialStepSize)
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass',initialStepSize,marginReg)
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass',initialStepSize,marginReg,marginType)
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass',initialStepSize,marginReg,marginType,optimalParams)
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass',initialStepSize,marginReg,marginType,optimalParams,stepDecreasingPower)
+   classifier = trainSVMSGDClassifier(imgSets, bag,'nameclass',initialStepSize,marginReg,marginType,optimalParams,stepDecreasingPower,svmsgdType)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier location</para></listitem></varlistentry>
+   <varlistentry><term>BagofFeaturesLocation :</term>
+      <listitem><para> location of the xml or yml file.</para></listitem></varlistentry>
+   <varlistentry><term>Description :</term>
+      <listitem><para> features obtained after training.</para></listitem></varlistentry>
+   <varlistentry><term>imgSets:</term>
+      <listitem><para> Input imageSet to train the classifier on</para></listitem></varlistentry>
+   <varlistentry><term>bag:</term>
+      <listitem><para> The bagOfFeatures of the imageSet provided</para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para> The set of images used for creating the imageset used for training</para></listitem></varlistentry>
+   <varlistentry><term>nameclass:</term>
+      <listitem><para> Name of the classifier one wants for their trained model .xml or .yml file</para></listitem></varlistentry>
+   <varlistentry><term>initialStepSize:</term>
+      <listitem><para>Parameter initialStepSize of a SVMSGD optimization problem that should be used to train the model.</para></listitem></varlistentry>
+   <varlistentry><term>marginReg:</term>
+      <listitem><para> Parameter marginRegularization of a SVMSGD optimization problem that should be used to train the model</para></listitem></varlistentry>
+   <varlistentry><term>marginType:</term>
+      <listitem><para> Parameter marginType of a SVMSGD optimization problem that should be used to train the model.it should be either 0 or 1.</para></listitem></varlistentry>
+   <varlistentry><term>optimalParams:</term>
+      <listitem><para> sets optimal parameters values for chosen SVM SGD model.</para></listitem></varlistentry>
+   <varlistentry><term>stepDecreasingPower:</term>
+      <listitem><para> Parameter stepDecreasingPower of a SVMSGD optimization problem that should be used to train the model.</para></listitem></varlistentry>
+   <varlistentry><term>svmsgdType:</term>
+      <listitem><para> Algorithm type of SVMSGD that should be used to train the model.it should be either 0 or 1.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to train an image classifier using the SVMSGD(Stochastic Gradient Descent SVM) Model.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//get imageset from 'images2' folder
+image=imageSet('images2','recursive');
+//get bag of features
+x=bagOfFeatures(image);
+//train thew model and name the saved .yml file as "pbrr" using the given parameters
+r=trainSVMSGDClassifier(image,x,"pbrr",0,0,0,1,0,1);
+//read image to get prediction from the above trained data
+z=imread("fish.jpg");
+//finally predict the class using SVMSGD's prediction function for the input image
+resp=predict(r,z,"SVMSGD");
+
+//get imageset from 'images2' folder
+image=imageSet('images2','recursive');
+//get bag of features
+x=bagOfFeatures(image);
+//train the model and name the saved .yml file as "pbrr"
+r=trainSVMSGDClassifier(image,x,"pbrr");
+//read image to get prediction from the above trained data
+z=imread("fish.jpg");
+//finally predict the class using SVMSGD's prediction function for the input image
+resp=predict(r,z,"SVMSGD");
+   ]]></programlisting>
+</refsection>
+</refentry>

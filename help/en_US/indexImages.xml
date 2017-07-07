@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from indexImages.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="indexImages" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>indexImages</refname>
+    <refpurpose>This function creates image search index</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   imageIndex = indexImages(imgSet, bagOfFeatures, Name, Value... );
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>imgSet:</term>
+      <listitem><para> Collection of images with their location and labels</para></listitem></varlistentry>
+   <varlistentry><term>bagOfFeatures:</term>
+      <listitem><para> Bag of Visual Words</para></listitem></varlistentry>
+   <varlistentry><term>Verbose [Optional Input Argument]:</term>
+      <listitem><para> Enable Progress display to Screen</para></listitem></varlistentry>
+   <varlistentry><term>SaveFeatureLocations [Optional Input Argument]:</term>
+      <listitem><para> A boolean value indicating whether feature locations has to be saved or not. Values: [True(default)|False]</para></listitem></varlistentry>
+   <varlistentry><term>imageIndex:</term>
+      <listitem><para> Search Index Object containing the mapping of visual vocabulary to each image in the image set</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Creates a search Index Object that has been mapped to visual words that can be used for retrieve Images
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+imgSet = imageSet(directory,'recursive');
+[trainingSet testSet] = partition(imgSet,[0.8]);
+bag = bagOfFeatures(trainingSet);
+imageindex = indexImages(trainingSet, bag);
+
+With Optional Arguments:
+imageindex = indexImages(trainingSet, bag, "Verbose", 1);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Umang Agrawal</member>
+   <member>Rohit Suri</member>
+   <member>Sridhar Reddy</member>
+   </simplelist>
+</refsection>
+</refentry>

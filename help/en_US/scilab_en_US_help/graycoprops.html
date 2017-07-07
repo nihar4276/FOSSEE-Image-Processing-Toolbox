@@ -1,0 +1,97 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>graycoprops</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="fitellipse.html">&lt;&lt; fitellipse</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imfuse.html">imfuse &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; graycoprops</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">graycoprops</h1>
+    <p class="refpurpose"></p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">z</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0034;<span class="default">lena</span><span class="default">.</span><span class="default">jpeg</span>&#0034;<span class="default">); </span><span class="comment">//in grayscale or color</span>
+<span class="comment">//Note: z can be a image or simply a Matrix.</span>
+<span class="default">gray</span><span class="default">=</span><span class="functionid">graycoprops</span><span class="default">(</span><span class="default">z</span><span class="default">)   </span><span class="comment">//get all 4 properties</span>
+<span class="default">gray</span><span class="default">=</span><span class="functionid">graycoprops</span><span class="default">(</span><span class="default">z</span><span class="default">,</span>&#0034;<span class="default">contrast</span>&#0034;<span class="default">) </span><span class="comment">//compute only contrast</span>
+<span class="default">gray</span><span class="default">=</span><span class="functionid">graycoprops</span><span class="default">(</span><span class="default">z</span><span class="default">,[</span>&#0034;<span class="default">contrast</span>&#0034; &#0034;<span class="default">energy</span>&#0034;<span class="default">]) </span><span class="comment">//compute contrast and energy.the properties can be passed in any order</span>
+<span class="default">gray</span><span class="default">=</span><span class="functionid">graycoprops</span><span class="default">(</span><span class="default">z</span><span class="default">,[</span>&#0034;<span class="default">contrast</span>&#0034; &#0034;<span class="default">correlation</span>&#0034; &#0034;<span class="default">energy</span>&#0034;<span class="default">])</span>
+<span class="default">gray</span><span class="default">=</span><span class="functionid">graycoprops</span><span class="default">(</span><span class="default">z</span><span class="default">,[</span>&#0034;<span class="default">contrast</span>&#0034; &#0034;<span class="default">correlation</span>&#0034; &#0034;<span class="default">energy</span>&#0034; &#0034;<span class="default">homogeneity</span>&#0034;<span class="default">])</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">gray:</span>
+      <dd><p class="para">A struct containing all the parameters</p></dd></dt>
+   <dt><span class="term">z:</span>
+      <dd><p class="para">A image or a matrix</p></dd></dt>
+   <dt><span class="term">contrast:</span>
+      <dd><p class="para">a measure of the intensity contrast between a pixel and its neighbor over the whole image.</p></dd></dt>
+   <dt><span class="term">energy:</span>
+      <dd><p class="para">the sum of squared elements</p></dd></dt>
+   <dt><span class="term">homogeneity:</span>
+      <dd><p class="para">a value that measures the closeness of the distribution of elements.</p></dd></dt>
+   <dt><span class="term">correlation:</span>
+      <dd><p class="para">a measure of how correlated a pixel is to its neighbor over the whole image</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">This function computes the Properties of gray-level co-occurrence matrix.The properties being &#0034;correlation&#0034;,&#0034;contrast&#0034;,&#0034;energy&#0034; and &#0034;homogeneity&#0034;.</p>
+   <p class="para"></p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">//compute for a image</span>
+<span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">sss</span><span class="scilaboperator">=</span><span class="scilabid">graycoprops</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabstring">&#0034;</span><span class="scilabstring">contrast</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span>
+
+<span class="scilabcomment">//compute for a matrix</span>
+<span class="scilabid">glcm</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">0</span> <span class="scilabnumber">1</span> <span class="scilabnumber">2</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span><span class="scilabnumber">1</span> <span class="scilabnumber">1</span> <span class="scilabnumber">2</span> <span class="scilabnumber">3</span><span class="scilabdefault">;</span><span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">2</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span><span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">3</span><span class="scilabopenclose">]</span>
+<span class="scilabid">sss</span><span class="scilaboperator">=</span><span class="scilabid">graycoprops</span><span class="scilabopenclose">(</span><span class="scilabid">glcm</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabstring">&#0034;</span><span class="scilabstring">contrast</span><span class="scilabstring">&#0034;</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">energy</span><span class="scilabstring">&#0034;</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">correlation</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="fitellipse.html">&lt;&lt; fitellipse</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="imfuse.html">imfuse &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

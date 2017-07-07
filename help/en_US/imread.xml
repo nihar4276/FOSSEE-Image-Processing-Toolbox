@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imread.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imread" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imread</refname>
+    <refpurpose></refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   image=imread("image_path");
+   image=imread("image_path",options)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>image_path:</term>
+      <listitem><para> a String which contains the path of the image that is to be read.</para></listitem></varlistentry>
+   <varlistentry><term>options:</term>
+      <listitem><para> an Integer, containing the option for user to specify. See below for details.</para></listitem></varlistentry>
+   <varlistentry><term>0 :</term>
+      <listitem><para>  convert image to the single channel grayscale image.</para></listitem></varlistentry>
+   <varlistentry><term>1 :</term>
+      <listitem><para>  convert image to the 3 channel BGR color image.</para></listitem></varlistentry>
+   <varlistentry><term>2 :</term>
+      <listitem><para>  load 16-bit/32-bit image when the input image has the corresponding depth, otherwise convert it to 8-bit.</para></listitem></varlistentry>
+   <varlistentry><term>4 :</term>
+      <listitem><para>  the image is read in any possible color format.</para></listitem></varlistentry>
+   <varlistentry><term>8 :</term>
+      <listitem><para>  use the gdal driver for loading the image.</para></listitem></varlistentry>
+   <varlistentry><term>16 :</term>
+      <listitem><para>    convert image to the single channel grayscale image and the image size reduced 1/2.</para></listitem></varlistentry>
+   <varlistentry><term>17 :</term>
+      <listitem><para> convert image to the 3 channel BGR color image and the image size reduced 1/2.</para></listitem></varlistentry>
+   <varlistentry><term>32 :</term>
+      <listitem><para> convert image to the single channel grayscale image and the image size reduced 1/4.</para></listitem></varlistentry>
+   <varlistentry><term>33 :</term>
+      <listitem><para> convert image to the 3 channel BGR color image and the image size reduced 1/4.</para></listitem></varlistentry>
+   <varlistentry><term>64 :</term>
+      <listitem><para> convert image to the single channel grayscale image and the image size reduced 1/8.</para></listitem></varlistentry>
+   <varlistentry><term>65 :</term>
+      <listitem><para> convert image to the 3 channel BGR color image and the image size reduced 1/8.</para></listitem></varlistentry>
+   <varlistentry><term>128 :</term>
+      <listitem><para> do not rotate the image according to EXIF's orientation flag.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function is used to Read/Load an image from the disk
+   </para>
+   <para>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+Read a image as it is(Unchanged).
+//Calling imread
+image=imread("test.jpg");
+
+Read image as grayscale
+//Calling imread
+image=imread("test.jpg",0);
+   ]]></programlisting>
+</refsection>
+</refentry>

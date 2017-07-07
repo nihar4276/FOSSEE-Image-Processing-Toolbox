@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from ellipse.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="ellipse" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>ellipse</refname>
+    <refpurpose>This function draws a simple or thick elliptic arc or fills an ellipse sector.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   elli=ellipse(inputImage,xcor,ycor,firstAxis,secondAxis,angle,startAngle,endAngle,r,g,b);
+   elli=ellipse(inputImage,xcor,ycor,firstAxis,secondAxis,angle,startAngle,endAngle,r,g,b,thickness);
+   elli=ellipse(inputImage,xcor,ycor,firstAxis,secondAxis,angle,startAngle,endAngle,r,g,b,thickness,linetype);
+   elli=ellipse(inputImage,xcor,ycor,firstAxis,secondAxis,angle,startAngle,endAngle,r,g,b,thickness,linetype,shift);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>elli:</term>
+      <listitem><para> The output image with the ellipse drawn in it.</para></listitem></varlistentry>
+   <varlistentry><term>inputImage:</term>
+      <listitem><para> The input image on which the ellipse should be drawn.</para></listitem></varlistentry>
+   <varlistentry><term>xcor:</term>
+      <listitem><para> X-coordinate of the center</para></listitem></varlistentry>
+   <varlistentry><term>ycor:</term>
+      <listitem><para> Y-coordinate of the center</para></listitem></varlistentry>
+   <varlistentry><term>firstAxis:</term>
+      <listitem><para> the first axis of the ellipse.</para></listitem></varlistentry>
+   <varlistentry><term>secondAxis:</term>
+      <listitem><para> the second axis of the ellipse.</para></listitem></varlistentry>
+   <varlistentry><term>angle:</term>
+      <listitem><para> Ellipse rotation angle in degrees.</para></listitem></varlistentry>
+   <varlistentry><term>startAngle:</term>
+      <listitem><para> Starting angle of the elliptic arc in degrees.</para></listitem></varlistentry>
+   <varlistentry><term>endAngle:</term>
+      <listitem><para>     Ending angle of the elliptic arc in degrees.</para></listitem></varlistentry>
+   <varlistentry><term>r:</term>
+      <listitem><para> red color value of the ellipse.It should be in the range 0-255.</para></listitem></varlistentry>
+   <varlistentry><term>b:</term>
+      <listitem><para> blue color value of the ellipse.It should be in the range 0-255.</para></listitem></varlistentry>
+   <varlistentry><term>g:</term>
+      <listitem><para> green color value of the ellipse.It should be in the range 0-255.</para></listitem></varlistentry>
+   <varlistentry><term>thickness:</term>
+      <listitem><para> Line thickness.</para></listitem></varlistentry>
+   <varlistentry><term>linetype:</term>
+      <listitem><para> Type of the ellipse boundary.It can be 0 or 4 or 8.</para></listitem></varlistentry>
+   <varlistentry><term>shift:</term>
+      <listitem><para> Number of fractional bits in the point coordinates.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+This function draws a simple or thick elliptic arc or fills an ellipse sector.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// read the input image on which the ellipse shpuld be drawn.
+z=imread("lena.jpeg",0);
+call the function
+elli=ellipse(z,0,0,45,45,45,0,45,255,0,0,1,0);
+// show the image drawn on it.
+imshow(elli)
+   ]]></programlisting>
+</refsection>
+</refentry>

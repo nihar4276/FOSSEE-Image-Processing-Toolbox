@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from demosaic.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="demosaic" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>demosaic</refname>
+    <refpurpose>This function  converts the Bayer pattern encoded image  to the truecolor image, RGB.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   image=imread("lena.jpeg",0)
+   dem=demosaic(image,"gbrg");
+   dem=demosaic(image,"bggr");
+   dem=demosaic(image,"rggb");
+   dem=demosaic(image,"grbg");
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>dem:</term>
+      <listitem><para> the output image</para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para> the image which should be converted.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+This function  converts the Bayer pattern encoded image  to the truecolor image, RGB.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+z=imread("lena.jpeg");
+dem=demosaic(z,"rggb");
+imshow(dem);
+   ]]></programlisting>
+</refsection>
+</refentry>

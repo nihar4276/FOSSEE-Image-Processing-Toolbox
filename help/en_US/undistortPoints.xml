@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from undistortPoints.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="undistortPoints" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>undistortPoints</refname>
+    <refpurpose>Returns the ideal point coordinates from the observed point coordinates</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   [idealPoints] = undistortPoints(observedPoints, camMat, disCoefMat, rectMat, newCamMat)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>observedPoints:</term>
+      <listitem><para> 1xN or Nx1 2-channel (CV_32FC2 or CV_64FC2).</para></listitem></varlistentry>
+   <varlistentry><term>camMat:</term>
+      <listitem><para> \vecthreethree{f_x}{0}{c_x}{0}{f_y}{c_y}{0}{0}{1}</para></listitem></varlistentry>
+   <varlistentry><term>disCoefMat:</term>
+      <listitem><para> Input vector of distortion coefficients  (k_1, k_2, p_1, p_2[, k_3[, k_4, k_5, k_6]]) of 4, 5, or 8 elements. If the vector is NULL/empty, the zero  distortion coefficients are assumed.</para></listitem></varlistentry>
+   <varlistentry><term>rectMat:</term>
+      <listitem><para> Rectification transformation in the object space (3x3 matrix). If the matrix is empty, the identity transformation is used.</para></listitem></varlistentry>
+   <varlistentry><term>newCamMat:</term>
+      <listitem><para> New camera matrix (3x3) or new projection matrix (3x4. If the matrix is empty, the identity new camera matrix is used.</para></listitem></varlistentry>
+   <varlistentry><term>idealPoints:</term>
+      <listitem><para> ideal point coordinates matrix. If matrix newCamMat is identity or omitted, idealPoints will contain normalized point coordinates.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+Returns the ideal points coordinates from the observed point coordinates after undistortion and reverse perpective transformation.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+[observedPoints] = [1 2 3 4; 4 3 2 1]
+[camMat] = [450 0 231; 0 876.3 87.1; 0 0 1]
+[disCoefMat] = [3 2 0 9]
+[rectMat] = [1 0 0; 0 1 0; 0 0 1]
+[newCamMat] = []
+[idealPoints] = undistortPoints(observedPoints, camMat, disCoefMat, rectMat, newCamMat)
+   ]]></programlisting>
+</refsection>
+</refentry>

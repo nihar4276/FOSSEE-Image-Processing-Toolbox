@@ -1,0 +1,132 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>stereoCalibrate</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="sobel.html">&lt;&lt; sobel</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="threshold.html">threshold &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; stereoCalibrate</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">stereoCalibrate</h1>
+    <p class="refpurpose">this function Performs stereo calibration for the fisheye model.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">stereo</span><span class="default">=</span><span class="functionid">stereoCalibrate</span><span class="default">(</span><span class="default">objectpoints</span><span class="default">,</span><span class="default">imagepoints1</span><span class="default">,</span><span class="default">imagepoints2</span><span class="default">);</span>
+<span class="default">stereo</span><span class="default">=</span><span class="functionid">stereoCalibrate</span><span class="default">(</span><span class="default">objectpoints</span><span class="default">,</span><span class="default">imagepoints1</span><span class="default">,</span><span class="default">imagepoints2</span><span class="default">,</span><span class="default">cameraMatrix1</span><span class="default">,</span><span class="default">distCoeffs1</span><span class="default">,</span><span class="default">cameraMatrix2</span><span class="default">,</span><span class="default">distCoeffs2</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">stereo:</span>
+      <dd><p class="para">a Struct containing all the camera Params</p></dd></dt>
+   <dt><span class="term">objectpoints:</span>
+      <dd><p class="para">a  2d set of actual object points.</p></dd></dt>
+   <dt><span class="term">imagepoints1:</span>
+      <dd><p class="para">a list of imagepoints of image1.</p></dd></dt>
+   <dt><span class="term">imagepoints2:</span>
+      <dd><p class="para">a list of imagepoints of image2.</p></dd></dt>
+   <dt><span class="term">cameraMatrix1:</span>
+      <dd><p class="para">camera matrix of first camera.</p></dd></dt>
+   <dt><span class="term">distCoeffs1:</span>
+      <dd><p class="para">distortion coefficients of first camera.it should be 4*1 or 1*4.</p></dd></dt>
+   <dt><span class="term">cameraMatrix2:</span>
+      <dd><p class="para">camera matrix of second camera.</p></dd></dt>
+   <dt><span class="term">distCoeffs2:</span>
+      <dd><p class="para">distortion coefficients of second camera.it should be 4*1 or 1*4.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"></p>
+   <p class="para">this function Performs stereo calibration for the fisheye model.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// A example to show calibration, using the traditional chessboard/checkerboard example.</span>
+
+<span class="scilabcomment">//generate checkerboardpoints for calibration</span>
+<span class="scilabid">yo</span><span class="scilaboperator">=</span><span class="scilabid">genCheckerboardPoints</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabnumber">7</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabnumber">8</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//read first image</span>
+<span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">left1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//read second image</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">right1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//detect checkerboardpoints for image 1</span>
+<span class="scilabid">ii</span><span class="scilaboperator">=</span><span class="scilabid">detectCheckerboardCorner</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">7</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//detect checkerboardpoints for image 2</span>
+<span class="scilabid">ii2</span><span class="scilaboperator">=</span><span class="scilabid">detectCheckerboardCorner</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">7</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//convert imagepoints to list</span>
+<span class="scilabid">ii</span><span class="scilaboperator">=</span><a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">ii</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">ii2</span><span class="scilaboperator">=</span><a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">ii2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">// call function</span>
+<span class="scilabid">final</span><span class="scilaboperator">=</span><span class="scilabid">stereoCalibrate</span><span class="scilabopenclose">(</span><span class="scilabid">yo</span><span class="scilabdefault">,</span><span class="scilabid">ii</span><span class="scilabdefault">,</span><span class="scilabid">ii2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">// show the struct</span>
+<span class="scilabid">final</span>
+<span class="scilabcomment">// use the above calibration further</span>
+<span class="scilabid">uu</span> <span class="scilaboperator">=</span> <span class="scilabid">undistortImage</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabdefault">,</span><span class="scilabid">final</span><span class="scilaboperator">.</span><span class="scilabfield">cameraMatrix2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">uu</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabcomment">//generate checkerboardpoints for calibration</span>
+<span class="scilabid">yo</span><span class="scilaboperator">=</span><span class="scilabid">genCheckerboardPoints</span><span class="scilabopenclose">(</span><span class="scilabopenclose">[</span><span class="scilabnumber">7</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabdefault">,</span><span class="scilabnumber">8</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//read first image</span>
+<span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">left1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//read second image</span>
+<span class="scilabid">image</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">right1.jpg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//detect checkerboardpoints for image 1</span>
+<span class="scilabid">ii</span><span class="scilaboperator">=</span><span class="scilabid">detectCheckerboardCorner</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">7</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//detect checkerboardpoints for image 2</span>
+<span class="scilabid">ii2</span><span class="scilaboperator">=</span><span class="scilabid">detectCheckerboardCorner</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">7</span> <span class="scilabnumber">10</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">//convert imagepoints to list</span>
+<span class="scilabid">ii</span><span class="scilaboperator">=</span><a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">ii</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">ii2</span><span class="scilaboperator">=</span><a class="scilabcommand" href="scilab://list">list</a><span class="scilabopenclose">(</span><span class="scilabid">ii2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">// call function</span>
+<span class="scilabid">final</span><span class="scilaboperator">=</span><span class="scilabid">stereoCalibrate</span><span class="scilabopenclose">(</span><span class="scilabid">yo</span><span class="scilabdefault">,</span><span class="scilabid">ii</span><span class="scilabdefault">,</span><span class="scilabid">ii2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabcomment">// show the struct</span>
+<span class="scilabid">final</span>
+<span class="scilabcomment">// use the above calibration further</span>
+<span class="scilabid">uu</span> <span class="scilaboperator">=</span> <span class="scilabid">undistortImage</span><span class="scilabopenclose">(</span><span class="scilabid">image</span><span class="scilabdefault">,</span><span class="scilabid">final</span><span class="scilaboperator">.</span><span class="scilabfield">cameraMatrix2</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">distCoeffs</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabid">final</span><span class="scilaboperator">.</span><span class="scilabfield">distortionCoefficients2</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">uu</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="sobel.html">&lt;&lt; sobel</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="threshold.html">threshold &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

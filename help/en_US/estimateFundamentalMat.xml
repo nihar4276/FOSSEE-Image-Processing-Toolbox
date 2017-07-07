@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from estimateFundamentalMat.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="estimateFundamentalMat" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>estimateFundamentalMat</refname>
+    <refpurpose>It returns the 3-by-3 fundamental matrix corresponding to the input points</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   fundamentalMat=estimateFundamentalMatrix(matchedPoints1,matchedPoints2);
+   fundamentalMat=estimateFundamentalMatrix(matchedPoints1,matchedPoints2,'method','RANSAC','param1',2,'param2',0.99);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>matchedPoints1:</term>
+      <listitem><para>  M-by-2 array of first image points. These points can be SURFPoints, MSERRegions, cornerPoints.</para></listitem></varlistentry>
+   <varlistentry><term>matchedPoints2:</term>
+      <listitem><para>  M-by-2 array of the second image points of the same size and format as matchedPoints1.</para></listitem></varlistentry>
+   <varlistentry><term>method:</term>
+      <listitem><para> method for computing fundamental matrix. Possible methods are 7POINT,8POINT,RANSAC,LMEDS and RANSAC is the default one.</para></listitem></varlistentry>
+   <varlistentry><term>param1:</term>
+      <listitem><para> It indiacates maximum distance from a point to an epipolar line in pixels</para></listitem></varlistentry>
+   <varlistentry><term>param2:</term>
+      <listitem><para> It specifies a desirable level of confidence</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+estimateFundamentalMatrix function calculates a fundamental matrix from the corresponding points in two images.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+I=imread("lena_left.jpeg");
+cornerPoints1=detectMinEigenFeatures(I);
+I2=imread("lena_right.jpeg");
+cornerPoints2=detectMinEigenFeatures(I2);
+fundamentalMat=(cornerPoints1.Location,cornerPoints2.Location);
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,137 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>cvtColor</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="correctMatches.html">&lt;&lt; correctMatches</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="dctmtx.html">dctmtx &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; cvtColor</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">cvtColor</h1>
+    <p class="refpurpose">This function is used to transform a image from one space to other like rgb to gray and vice versa.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">inputImage</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0034;<span class="default">lena</span><span class="default">.</span><span class="default">jpeg</span>&#0034;<span class="default">);</span>
+<span class="default">outputImage</span><span class="default">=</span><span class="functionid">cvtColor</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">codeString</span><span class="default">);</span>
+<span class="default">outputImage</span><span class="default">=</span><span class="functionid">cvtColor</span><span class="default">(</span><span class="default">inputImage</span><span class="default">,</span><span class="default">codeString</span><span class="default">,</span><span class="default">dstCn</span><span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">dstCn:</span>
+      <dd><p class="para">number of channels in the destination image; if the parameter is 0, the number of the channels is derived automatically from src and code</p></dd></dt>
+   <dt><span class="term">codeString:</span>
+      <dd><p class="para">A string which specifies the type of conversion.The different types are listed below.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_BGR2GRAY&#0034;:</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space to GRAY.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_RGB2GRAY&#0034;:</span>
+      <dd><p class="para">Conversion is from RGB(red-green-blue) space to GRAY.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_GRAY2BGR&#0034;:</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_GRAY2RGB&#0034;:</span>
+      <dd><p class="para">Conversion is from to GRAY to RGB(blue-green-red) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_BGR2XYZ&#0034; :</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space to CIE XYZ.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_RGB2XYZ&#0034; :</span>
+      <dd><p class="para">Conversion is from RGB(red-green-blue) space to CIE XYZ.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_XYZ2BGR&#0034; :</span>
+      <dd><p class="para">Conversion is from to CIE XYZ to BGR space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_XYZ2RGB&#0034; :</span>
+      <dd><p class="para">Conversion is from to CIE XYZ to RGB(red-green-blue) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_BGR2YCrCb&#0034;:</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space to luma-chroma.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_RGB2YCrCb&#0034; :</span>
+      <dd><p class="para">Conversion is from RGB(red-green-blue) space to luma chroma.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_YCrCb2BGR&#0034; :</span>
+      <dd><p class="para">Conversion is from  luma-chroma to BGR(blue-green-red) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_YCrCb2RGB&#0034; :</span>
+      <dd><p class="para">Conversion is from  luma-chroma to RGB(red-green-blue) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_BGR2HSV&#0034;:</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space to HSV.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_RGB2HSV&#0034;:</span>
+      <dd><p class="para">Conversion is from RGB space to HSV.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_HSV2BGR&#0034;:</span>
+      <dd><p class="para">Conversion is from to HSV to BGR(blue-green-red) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_HSV2RGB&#0034;:</span>
+      <dd><p class="para">Conversion is from to HSV to RGB(red-green-blue) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_BGR2HLS&#0034;:</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space to HLS.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_RGB2HLS&#0034;:</span>
+      <dd><p class="para">Conversion is from RGB space to HSV.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_HLS2BGR&#0034;:</span>
+      <dd><p class="para">Conversion is from  HLS to BGR(blue-green-red) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_HLS2RGB&#0034;:</span>
+      <dd><p class="para">Conversion is from  HLS to RGB(red-green-blue) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_BGR2Lab&#0034;:</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space to CIE Lab.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_RGB2Lab&#0034;:</span>
+      <dd><p class="para">Conversion is from RGB space to CIE Lab.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_Lab2BGR&#0034;:</span>
+      <dd><p class="para">Conversion is from  CIE Lab to BGR(blue-green-red) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_Lab2RGB&#0034;:</span>
+      <dd><p class="para">Conversion is from  CIE Lab to RGB space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_BGR2Luv&#0034;:</span>
+      <dd><p class="para">Conversion is from BGR(blue-green-red) space to CIE Luv.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_RGB2Luv&#0034;:</span>
+      <dd><p class="para">Conversion is from RGB space to CIE Luv.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_Luv2BGR&#0034;:</span>
+      <dd><p class="para">Conversion is from  CIE Luv to BGR(blue-green-red) space.</p></dd></dt>
+   <dt><span class="term">&#0034;CV_Luv2RGB&#0034;:</span>
+      <dd><p class="para">Conversion is from  CIE Luv to RGB space.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"></p>
+   <p class="para">This function is used to transform a image from one space to other like rgb to gray and vice versa.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">ss</span><span class="scilaboperator">=</span><span class="scilabid">cvtColor</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">CV_GRAY2BGR</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">ss</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="correctMatches.html">&lt;&lt; correctMatches</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="dctmtx.html">dctmtx &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

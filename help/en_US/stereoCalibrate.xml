@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from stereoCalibrate.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="stereoCalibrate" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>stereoCalibrate</refname>
+    <refpurpose>this function Performs stereo calibration for the fisheye model.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   stereo=stereoCalibrate(objectpoints,imagepoints1,imagepoints2);
+   stereo=stereoCalibrate(objectpoints,imagepoints1,imagepoints2,cameraMatrix1,distCoeffs1,cameraMatrix2,distCoeffs2);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>stereo:</term>
+      <listitem><para> a Struct containing all the camera Params</para></listitem></varlistentry>
+   <varlistentry><term>objectpoints:</term>
+      <listitem><para> a  2d set of actual object points.</para></listitem></varlistentry>
+   <varlistentry><term>imagepoints1:</term>
+      <listitem><para> a list of imagepoints of image1.</para></listitem></varlistentry>
+   <varlistentry><term>imagepoints2:</term>
+      <listitem><para> a list of imagepoints of image2.</para></listitem></varlistentry>
+   <varlistentry><term>cameraMatrix1:</term>
+      <listitem><para> camera matrix of first camera.</para></listitem></varlistentry>
+   <varlistentry><term>distCoeffs1:</term>
+      <listitem><para> distortion coefficients of first camera.it should be 4*1 or 1*4.</para></listitem></varlistentry>
+   <varlistentry><term>cameraMatrix2:</term>
+      <listitem><para> camera matrix of second camera.</para></listitem></varlistentry>
+   <varlistentry><term>distCoeffs2:</term>
+      <listitem><para> distortion coefficients of second camera.it should be 4*1 or 1*4.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+this function Performs stereo calibration for the fisheye model.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// A example to show calibration, using the traditional chessboard/checkerboard example.
+
+//generate checkerboardpoints for calibration
+yo=genCheckerboardPoints([7 10],8);
+//read first image
+z=imread("left1.jpg",0);
+//read second image
+image=imread("right1.jpg",0);
+//detect checkerboardpoints for image 1
+ii=detectCheckerboardCorner(z,[7 10]);
+//detect checkerboardpoints for image 2
+ii2=detectCheckerboardCorner(image,[7 10]);
+//convert imagepoints to list
+ii=list(ii);
+ii2=list(ii2);
+// call function
+final=stereoCalibrate(yo,ii,ii2);
+// show the struct
+final
+// use the above calibration further
+uu = undistortImage(image,final.cameraMatrix2);
+imshow(uu);
+
+
+//generate checkerboardpoints for calibration
+yo=genCheckerboardPoints([7 10],8);
+//read first image
+z=imread("left1.jpg",0);
+//read second image
+image=imread("right1.jpg",0);
+//detect checkerboardpoints for image 1
+ii=detectCheckerboardCorner(z,[7 10]);
+//detect checkerboardpoints for image 2
+ii2=detectCheckerboardCorner(image,[7 10]);
+//convert imagepoints to list
+ii=list(ii);
+ii2=list(ii2);
+// call function
+final=stereoCalibrate(yo,ii,ii2);
+// show the struct
+final
+// use the above calibration further
+uu = undistortImage(image,final.cameraMatrix2,'distCoeffs',final.distortionCoefficients2);
+imshow(uu);
+   ]]></programlisting>
+</refsection>
+</refentry>

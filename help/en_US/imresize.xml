@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from imresize.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="imresize" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>imresize</refname>
+    <refpurpose>This function is used to resize the image</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   newImage=imresize(inputImage,alpha,beta);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>newImage:</term>
+      <listitem><para> the new resized image</para></listitem></varlistentry>
+   <varlistentry><term>inputImage:</term>
+      <listitem><para> the image which should be resized.</para></listitem></varlistentry>
+   <varlistentry><term>alpha:</term>
+      <listitem><para> new number of rows.</para></listitem></varlistentry>
+   <varlistentry><term>beta:</term>
+      <listitem><para> new number of columns.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+This function is used to resize the image
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+z=imread("lena.jpeg",0);
+zz=imresize(z,35,12);
+imshow(zz)
+   ]]></programlisting>
+</refsection>
+</refentry>

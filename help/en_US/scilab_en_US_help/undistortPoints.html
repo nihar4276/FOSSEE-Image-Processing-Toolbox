@@ -1,0 +1,87 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>undistortPoints</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="undistortImage.html">&lt;&lt; undistortImage</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; undistortPoints</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">undistortPoints</h1>
+    <p class="refpurpose">Returns the ideal point coordinates from the observed point coordinates</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">idealPoints</span><span class="default">] = </span><span class="functionid">undistortPoints</span><span class="default">(</span><span class="default">observedPoints</span><span class="default">, </span><span class="default">camMat</span><span class="default">, </span><span class="default">disCoefMat</span><span class="default">, </span><span class="default">rectMat</span><span class="default">, </span><span class="default">newCamMat</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">observedPoints:</span>
+      <dd><p class="para">1xN or Nx1 2-channel (CV_32FC2 or CV_64FC2).</p></dd></dt>
+   <dt><span class="term">camMat:</span>
+      <dd><p class="para">\vecthreethree{f_x}{0}{c_x}{0}{f_y}{c_y}{0}{0}{1}</p></dd></dt>
+   <dt><span class="term">disCoefMat:</span>
+      <dd><p class="para">Input vector of distortion coefficients  (k_1, k_2, p_1, p_2[, k_3[, k_4, k_5, k_6]]) of 4, 5, or 8 elements. If the vector is NULL/empty, the zero  distortion coefficients are assumed.</p></dd></dt>
+   <dt><span class="term">rectMat:</span>
+      <dd><p class="para">Rectification transformation in the object space (3x3 matrix). If the matrix is empty, the identity transformation is used.</p></dd></dt>
+   <dt><span class="term">newCamMat:</span>
+      <dd><p class="para">New camera matrix (3x3) or new projection matrix (3x4. If the matrix is empty, the identity new camera matrix is used.</p></dd></dt>
+   <dt><span class="term">idealPoints:</span>
+      <dd><p class="para">ideal point coordinates matrix. If matrix newCamMat is identity or omitted, idealPoints will contain normalized point coordinates.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">Returns the ideal points coordinates from the observed point coordinates after undistortion and reverse perpective transformation.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabopenclose">[</span><span class="scilabid">observedPoints</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">2</span> <span class="scilabnumber">3</span> <span class="scilabnumber">4</span><span class="scilabdefault">;</span> <span class="scilabnumber">4</span> <span class="scilabnumber">3</span> <span class="scilabnumber">2</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span>
+<span class="scilabopenclose">[</span><span class="scilabid">camMat</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">450</span> <span class="scilabnumber">0</span> <span class="scilabnumber">231</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">876.3</span> <span class="scilabnumber">87.1</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span>
+<span class="scilabopenclose">[</span><span class="scilabid">disCoefMat</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">3</span> <span class="scilabnumber">2</span> <span class="scilabnumber">0</span> <span class="scilabnumber">9</span><span class="scilabopenclose">]</span>
+<span class="scilabopenclose">[</span><span class="scilabid">rectMat</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span> <span class="scilabnumber">0</span><span class="scilabdefault">;</span> <span class="scilabnumber">0</span> <span class="scilabnumber">0</span> <span class="scilabnumber">1</span><span class="scilabopenclose">]</span>
+<span class="scilabopenclose">[</span><span class="scilabid">newCamMat</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabopenclose">]</span>
+<span class="scilabopenclose">[</span><span class="scilabid">idealPoints</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">undistortPoints</span><span class="scilabopenclose">(</span><span class="scilabid">observedPoints</span><span class="scilabdefault">,</span> <span class="scilabid">camMat</span><span class="scilabdefault">,</span> <span class="scilabid">disCoefMat</span><span class="scilabdefault">,</span> <span class="scilabid">rectMat</span><span class="scilabdefault">,</span> <span class="scilabid">newCamMat</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="undistortImage.html">&lt;&lt; undistortImage</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

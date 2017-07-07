@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from deconvlucy.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="deconvlucy" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>deconvlucy</refname>
+    <refpurpose>This function is used to Deblur image using Lucy-Richardson method</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   J = deconvlucy(I1, I2);
+   J = deconvlucy(I1, I2, NUMIT)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>I1:</term>
+      <listitem><para> image matrix of the source image .</para></listitem></varlistentry>
+   <varlistentry><term>I2:</term>
+      <listitem><para> image matrix of the source image from last iteraion.</para></listitem></varlistentry>
+   <varlistentry><term>NUMIT:</term>
+      <listitem><para> The number if iterations specified to achieve the desired result.</para></listitem></varlistentry>
+   <varlistentry><term>B :</term>
+      <listitem><para> output image in the deconvoluted form.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+J = deconvlucy(I, PSF, NUMIT) specifies the number of iterations the deconvlucy function performs. If this value is not specified, the default is 10.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread("lena.jpeg",0);
+i1 = imread("lena.jpeg",0);
+rs = deconvlucy(i,i1);
+
+   ]]></programlisting>
+</refsection>
+</refentry>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a1c783313efc44b1ff24d7f67ed09f9fa SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/CascadeObjectDetector.xml">
+<!ENTITY a6057a2931c9ba06bf69b0718253a7f43 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/arrowedline.xml">
+<!ENTITY a249387f1e2010a0af784c47d1a0593d6 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/bagOfFeatures.xml">
+<!ENTITY ae75ca7637710d4e262b1f0b51673fa51 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/blur.xml">
+<!ENTITY af663a9ccea5b2ef374b470f5c0fbf78f SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/circle.xml">
+<!ENTITY a1a4bf079dfff742308b6e99c80cab145 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/cvtColor.xml">
+<!ENTITY a9621c4caec3cf66d0796544955a72b9f SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/deconvlucy.xml">
+<!ENTITY a5d5e4694041f56c7a8ea0dbae2fc2080 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/demosaic.xml">
+<!ENTITY a52a2afd0b74f2cf38c69ad333f1e6e80 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/ellipse.xml">
+<!ENTITY ae6f9cd868ae117193f4a61e921e7ecf4 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/erode.xml">
+<!ENTITY ad1291297f626147a8f547efc784a53d8 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/findHomography.xml">
+<!ENTITY a0a00d9bf5355279f3501f57a068f271c SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/fitellipse.xml">
+<!ENTITY ae07678a0d7b13b0c1e4a706af7cba772 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/graycoprops.xml">
+<!ENTITY a7e03210de8e0700e2b8afec91945f6fe SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imread.xml">
+<!ENTITY a90378f8702bbd352e1c43c65fc0e74a5 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/imresize.xml">
+<!ENTITY a9764533c75b7404fda073b3573d6fbd2 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/matMulDeriv.xml">
+<!ENTITY a7980cae396dfbb28f16e9aa428dcf8d0 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/stereoCalibrate.xml">
+<!ENTITY a8087f56e69588df90bf4ba21cc3827da SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainSVMClassifier.xml">
+<!ENTITY a63c8d02f85102ddf8ccb4695c7599141 SYSTEM "/home/nihar/FosseeSummerInternship/FOSSEE_Image_Processing_Toolbox-master/help/en_US/trainSVMSGDClassifier.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='bluren_us_manual'>
+    <title>blur[en_US]</title>
+  </info>
+
+<part xml:id='section_172655067baa8faab0f546d4e063142e'>
+<title>blur[en_US]</title>
+&a1c783313efc44b1ff24d7f67ed09f9fa;
+&a6057a2931c9ba06bf69b0718253a7f43;
+&a249387f1e2010a0af784c47d1a0593d6;
+&ae75ca7637710d4e262b1f0b51673fa51;
+&af663a9ccea5b2ef374b470f5c0fbf78f;
+&a1a4bf079dfff742308b6e99c80cab145;
+&a9621c4caec3cf66d0796544955a72b9f;
+&a5d5e4694041f56c7a8ea0dbae2fc2080;
+&a52a2afd0b74f2cf38c69ad333f1e6e80;
+&ae6f9cd868ae117193f4a61e921e7ecf4;
+&ad1291297f626147a8f547efc784a53d8;
+&a0a00d9bf5355279f3501f57a068f271c;
+&ae07678a0d7b13b0c1e4a706af7cba772;
+&a7e03210de8e0700e2b8afec91945f6fe;
+&a90378f8702bbd352e1c43c65fc0e74a5;
+&a9764533c75b7404fda073b3573d6fbd2;
+&a7980cae396dfbb28f16e9aa428dcf8d0;
+&a8087f56e69588df90bf4ba21cc3827da;
+&a63c8d02f85102ddf8ccb4695c7599141;
+</part>
+</book>

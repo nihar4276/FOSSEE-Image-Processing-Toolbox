@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from trainSVMClassifier.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="trainSVMClassifier" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>trainSVMClassifier</refname>
+    <refpurpose>This function is used to train an image classifier using the SVM(Support Vector Machines) Model.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   imgSet = imageSet(directory,'recursive');
+   'or'
+   imgSet = imageSet(image);
+   bag = bagOfFeatures(imgSet);
+   classifier = trainSVMClassifier(imgSets, bag);
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass')
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass')
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass',C)
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass',C,coeff)
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass',C,coeff,degree)
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass',C,coeff,degree,gamma)
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass',C,coeff,degree,gamma,kernelType,Nu)
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass',C,coeff,degree,gamma,kernelType,Nu,P)
+   classifier = trainSVMClassifier(imgSets, bag,'nameclass',C,coeff,degree,gamma,kernelType,Nu,P,setType)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>classifier:</term>
+      <listitem><para> Image category classifier location</para></listitem></varlistentry>
+   <varlistentry><term>BagofFeaturesLocation :</term>
+      <listitem><para> location of the xml or yml file.</para></listitem></varlistentry>
+   <varlistentry><term>Description :</term>
+      <listitem><para> features obtained after training.</para></listitem></varlistentry>
+   <varlistentry><term>imgSets:</term>
+      <listitem><para> Input imageSet to train the classifier on</para></listitem></varlistentry>
+   <varlistentry><term>bag:</term>
+      <listitem><para> The bagOfFeatures of the imageSet provided</para></listitem></varlistentry>
+   <varlistentry><term>image:</term>
+      <listitem><para> The set of images used for creating the imageset used for training</para></listitem></varlistentry>
+   <varlistentry><term>nameclass:</term>
+      <listitem><para> Name of the classifier one wants for their trained model .xml or .yml file</para></listitem></varlistentry>
+   <varlistentry><term>C:</term>
+      <listitem><para> Parameter C of a SVM optimization problem that should be used to train the model</para></listitem></varlistentry>
+   <varlistentry><term>coef:</term>
+      <listitem><para> Parameter coef0 of a kernel function that should be used to train the model</para></listitem></varlistentry>
+   <varlistentry><term>degree:</term>
+      <listitem><para> Parameter degree of a kernel function that should be used to train the model</para></listitem></varlistentry>
+   <varlistentry><term>gamma:</term>
+      <listitem><para>Parameter γ of a kernel function that should be used to train the model.</para></listitem></varlistentry>
+   <varlistentry><term>kernelType:</term>
+      <listitem><para>Type of a SVM kernel that should be used to train the model.it should be [-1,5].</para></listitem></varlistentry>
+   <varlistentry><term>Nu:</term>
+      <listitem><para>Parameter ν of a SVM optimization problem that should be used to train the model.</para></listitem></varlistentry>
+   <varlistentry><term>P:</term>
+      <listitem><para> Parameter ϵ of a SVM optimization problem that should be used to train the model.</para></listitem></varlistentry>
+   <varlistentry><term>type:</term>
+      <listitem><para> Type of a SVM formulation that should be used to train the model.it should be [100,104].</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+this function is used to train an image classifier using the SVM(Support Vector Machines) Model.
+   </para>
+   <para>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//get imageset from 'images2' folder
+image=imageSet('images2','recursive');
+//get bag of features
+x=bagOfFeatures(image);
+//train thew model and name the saved .yml file as "SVM"
+d=trainSVMClassifier(image,x,"SVM");
+//read image to get prediction from mthe above trained data
+z=imread("fish.jpg");
+//finally predict the class using SVM's prediction function for the input image
+resp=predict(d,z,"SVM");
+
+//get imageset from 'images2' folder
+image=imageSet('images2','recursive');
+//get bag of features
+x=bagOfFeatures(image);
+//train the model with the given parameters  and name  the saved .yml file as "SVM"
+d=trainSVMClassifier(image,x,"SVM",1.1,0.2);
+//read image to get prediction from mthe above trained data
+z=imread("fish.jpg");
+//finally predict the class for the input image
+resp=predict(d,z,"SVM");
+   ]]></programlisting>
+</refsection>
+</refentry>

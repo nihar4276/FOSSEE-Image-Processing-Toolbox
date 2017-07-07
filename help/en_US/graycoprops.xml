@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from graycoprops.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="graycoprops" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>graycoprops</refname>
+    <refpurpose></refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   z=imread("lena.jpeg"); //in grayscale or color
+   //Note: z can be a image or simply a Matrix.
+   gray=graycoprops(z)   //get all 4 properties
+   gray=graycoprops(z,"contrast") //compute only contrast
+   gray=graycoprops(z,["contrast" "energy"]) //compute contrast and energy.the properties can be passed in any order
+   gray=graycoprops(z,["contrast"  "correlation" "energy"])
+   gray=graycoprops(z,["contrast"  "correlation" "energy" "homogeneity"])
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>gray:</term>
+      <listitem><para> A struct containing all the parameters</para></listitem></varlistentry>
+   <varlistentry><term>z:</term>
+      <listitem><para> A image or a matrix</para></listitem></varlistentry>
+   <varlistentry><term>contrast:</term>
+      <listitem><para> a measure of the intensity contrast between a pixel and its neighbor over the whole image.</para></listitem></varlistentry>
+   <varlistentry><term>energy:</term>
+      <listitem><para> the sum of squared elements</para></listitem></varlistentry>
+   <varlistentry><term>homogeneity:</term>
+      <listitem><para> a value that measures the closeness of the distribution of elements.</para></listitem></varlistentry>
+   <varlistentry><term>correlation:</term>
+      <listitem><para>a measure of how correlated a pixel is to its neighbor over the whole image</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This function computes the Properties of gray-level co-occurrence matrix.The properties being "correlation","contrast","energy" and "homogeneity".
+   </para>
+   <para>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+//compute for a image
+z=imread("lena.jpeg",0);
+sss=graycoprops(z,["contrast"])
+
+//compute for a matrix
+glcm = [0 1 2 3;1 1 2 3;1 0 2 0;0 0 0 3]
+sss=graycoprops(glcm,["contrast" "energy" "correlation"])
+   ]]></programlisting>
+</refsection>
+</refentry>

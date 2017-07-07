@@ -1,0 +1,83 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>demosaic</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="deconvlucy.html">&lt;&lt; deconvlucy</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectAgastFeatures.html">detectAgastFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">FOSSEE_Image_Processing_Toolbox</a> &gt;&gt; <a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a> &gt; demosaic</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">demosaic</h1>
+    <p class="refpurpose">This function  converts the Bayer pattern encoded image  to the truecolor image, RGB.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">image</span><span class="default">=</span><span class="default">imread</span><span class="default">(</span>&#0034;<span class="default">lena</span><span class="default">.</span><span class="default">jpeg</span>&#0034;<span class="default">,0)</span>
+<span class="default">dem</span><span class="default">=</span><span class="functionid">demosaic</span><span class="default">(</span><span class="default">image</span><span class="default">,</span>&#0034;<span class="default">gbrg</span>&#0034;<span class="default">);</span>
+<span class="default">dem</span><span class="default">=</span><span class="functionid">demosaic</span><span class="default">(</span><span class="default">image</span><span class="default">,</span>&#0034;<span class="default">bggr</span>&#0034;<span class="default">);</span>
+<span class="default">dem</span><span class="default">=</span><span class="functionid">demosaic</span><span class="default">(</span><span class="default">image</span><span class="default">,</span>&#0034;<span class="default">rggb</span>&#0034;<span class="default">);</span>
+<span class="default">dem</span><span class="default">=</span><span class="functionid">demosaic</span><span class="default">(</span><span class="default">image</span><span class="default">,</span>&#0034;<span class="default">grbg</span>&#0034;<span class="default">);</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">dem:</span>
+      <dd><p class="para">the output image</p></dd></dt>
+   <dt><span class="term">image:</span>
+      <dd><p class="para">the image which should be converted.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"></p>
+   <p class="para">This function  converts the Bayer pattern encoded image  to the truecolor image, RGB.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">z</span><span class="scilaboperator">=</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">lena.jpeg</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">dem</span><span class="scilaboperator">=</span><span class="scilabid">demosaic</span><span class="scilabopenclose">(</span><span class="scilabid">z</span><span class="scilabdefault">,</span><span class="scilabstring">&#0034;</span><span class="scilabstring">rggb</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">imshow</span><span class="scilabopenclose">(</span><span class="scilabid">dem</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="deconvlucy.html">&lt;&lt; deconvlucy</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8354a437b5c51b55a47d8c4ea68b3e72.html">FOSSEE_Image_Processing_Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="detectAgastFeatures.html">detectAgastFeatures &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

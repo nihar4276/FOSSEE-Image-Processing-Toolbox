@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from blur.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="blur" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>blur</refname>
+    <refpurpose>This function is used to blur an image using the normalized box filter.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   B = blur(input_image ,ksize_width,ksize_height,anchorX,anchorY);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>A:</term>
+      <listitem><para> image matrix of the source image.</para></listitem></varlistentry>
+   <varlistentry><term>ksize_width :</term>
+      <listitem><para> Defines the width of the kernel to be used in pixels.</para></listitem></varlistentry>
+   <varlistentry><term>ksize_width :</term>
+      <listitem><para> Defines the height of the kernel to be used in pixels.</para></listitem></varlistentry>
+   <varlistentry><term>anchorX :</term>
+      <listitem><para>  Indicates where the x coordinate of the anchor point (the pixel evaluated) is located with respect to the neighborhood. If there is a negative value, then the center of the kernel is considered the anchor point.</para></listitem></varlistentry>
+   <varlistentry><term>anchorY :</term>
+      <listitem><para>  Indicates where the y coordinate of the anchor point (the pixel evaluated) is located with respect to the neighborhood. If there is a negative value, then the center of the kernel is considered the anchor point.</para></listitem></varlistentry>
+   <varlistentry><term>B :</term>
+      <listitem><para> output image with the applied blur fucntion.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+The function smoothes an image using the kernel specified with its dimesnsions.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+i = imread('right1.jpg',0);
+i2 =blur(i,5,5,1,1)
+imshow(i2);
+
+   ]]></programlisting>
+</refsection>
+</refentry>

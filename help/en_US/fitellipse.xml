@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from fitellipse.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="fitellipse" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>fitellipse</refname>
+    <refpurpose>The function calculates the ellipse that fits (in a least-squares sense) a set of 2D points best of all.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   felli=fitellipse(points);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>felli:</term>
+      <listitem><para> a struct containing all the details about the ellipse Params.</para></listitem></varlistentry>
+   <varlistentry><term>points:</term>
+      <listitem><para> Input 2D point set</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+The function calculates the ellipse that fits (in a least-squares sense) a set of 2D points best of all.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+
+// read image
+z=imread("lena.jpeg",0);
+//get points using KAZE detector or the points can also be hardcoded.
+pio=detectKAZEFeatures(z);
+// call function
+sss=fitellipse(pio.KeyPoints)
+   ]]></programlisting>
+</refsection>
+</refentry>

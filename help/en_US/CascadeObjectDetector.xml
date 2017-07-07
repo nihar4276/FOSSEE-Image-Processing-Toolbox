@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from CascadeObjectDetector.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="CascadeObjectDetector" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>CascadeObjectDetector</refname>
+    <refpurpose>This function is used to detect objects in an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   
+   detect=CascadeObjectDetector(inputImage,classifierList);
+   detect=CascadeObjectDetector(inputImage,classifierList,scale);
+   detect=CascadeObjectDetector(inputImage,classifierList,scale,minNeighbors);
+   detect=CascadeObjectDetector(inputImage,classifierList,scale,minNeighbors,flags);
+   detect=CascadeObjectDetector(inputImage,classifierList,scale,minNeighbors,flags,minSize);
+   detect=CascadeObjectDetector(inputImage,classifierList,scale,minNeighbors,flags,minSize,maxSize);
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>out:</term>
+      <listitem><para> the output image with all specified detections.</para></listitem></varlistentry>
+   <varlistentry><term>inputImage:</term>
+      <listitem><para> input image on which the objects should be detected.</para></listitem></varlistentry>
+   <varlistentry><term>classifierList:</term>
+      <listitem><para> a matrix of strings containing the location of the xml files which are to be used in the detection.</para></listitem></varlistentry>
+   <varlistentry><term>scale:</term>
+      <listitem><para> Parameter specifying how much the image size is reduced at each image scale.</para></listitem></varlistentry>
+   <varlistentry><term>minNeighbors:</term>
+      <listitem><para> Parameter specifying how many neighbors each candidate rectangle should have to retain it.</para></listitem></varlistentry>
+   <varlistentry><term>flags:</term>
+      <listitem><para> the method used in detection.it should be either 1 or 4 or 2 or 8.</para></listitem></varlistentry>
+   <varlistentry><term>min size:</term>
+      <listitem><para> Minimum possible object size. Objects smaller than that are ignored.</para></listitem></varlistentry>
+   <varlistentry><term>max size:</term>
+      <listitem><para> Maximum possible object size. Objects larger than that are ignored.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+This function is used to detect objects in an image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// A example detecting all faces,eyes in an image.
+//read the input image.
+z=imread("oscarSelfie.jpg");
+//increase stacksize of scilab
+stacksize('max')
+declare string martrix with the xml locations.Here the general opencv's .xml files are used.
+s=["/home/nihar/Desktop/opencv/data/haarcascades/haarcascade_eye_tree_eyeglasses.xml" "/home/nihar/Desktop/opencv/data/haarcascades/haarcascade_frontalface_alt.xml"];
+//call function
+//Note:-the value of scale and other optional inputs must be adjusted to get proper/desired detection.
+p=CascadeObjectDetector(z,s,1.05);
+//show the detection
+imshow(p);
+
+Detect only faces.
+
+//read the input image.
+z=imread("oscarSelfie.jpg");
+//increase stacksize of scilab
+stacksize('max')
+declare string martrix with the xml locations.Here the general opencv's .xml files are used.
+s=["/home/nihar/Desktop/opencv/data/haarcascades/haarcascade_frontalface_alt.xml"];
+//call function
+//Note:-the value of scale and other optional inputs must be adjusted to get proper/desired detection.
+p=CascadeObjectDetector(z,s,1.05);
+//show the detection
+imshow(p);
+   ]]></programlisting>
+</refsection>
+</refentry>
